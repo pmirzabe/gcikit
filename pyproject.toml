@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gcikit"
+version = "0.1.0"
+description = "Grid Convergence Index and Richardson extrapolation for CFD and FEA mesh studies"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Pooya Mirzabeygi" }]
+requires-python = ">=3.9"
+keywords = ["CFD", "FEA", "mesh independence", "grid convergence index", "verification", "Richardson extrapolation"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+gcikit = "gcikit.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gcikit"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
